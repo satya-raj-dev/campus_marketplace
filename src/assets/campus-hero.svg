@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 680" role="img" aria-labelledby="title desc">
+  <title id="title">Students collaborating on campus</title>
+  <desc id="desc">A soft illustration of college students working together around a laptop.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dff4ff"/>
+      <stop offset=".55" stop-color="#edf0ff"/>
+      <stop offset="1" stop-color="#fff7ec"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#b8f0d0"/>
+      <stop offset="1" stop-color="#7bdcb5"/>
+    </linearGradient>
+    <linearGradient id="shirtA" x1="0" x2="1">
+      <stop offset="0" stop-color="#172554"/>
+      <stop offset="1" stop-color="#2563eb"/>
+    </linearGradient>
+    <linearGradient id="shirtB" x1="0" x2="1">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#c084fc"/>
+    </linearGradient>
+    <linearGradient id="shirtC" x1="0" x2="1">
+      <stop offset="0" stop-color="#065f46"/>
+      <stop offset="1" stop-color="#22c55e"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0f172a" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="960" height="680" rx="42" fill="url(#sky)"/>
+  <path d="M0 472c128-44 257-60 386-34 98 19 159 52 255 42 92-9 167-51 319-33v233H0Z" fill="url(#grass)"/>
+  <rect x="626" y="78" width="228" height="160" rx="12" fill="#fff" opacity=".72"/>
+  <rect x="654" y="106" width="44" height="132" fill="#dbeafe"/>
+  <rect x="724" y="106" width="44" height="132" fill="#dbeafe"/>
+  <rect x="794" y="106" width="44" height="132" fill="#dbeafe"/>
+  <rect x="672" y="264" width="90" height="32" rx="16" fill="#ffffff" opacity=".65"/>
+  <circle cx="130" cy="112" r="58" fill="#fff" opacity=".72"/>
+  <circle cx="822" cy="351" r="82" fill="#fff" opacity=".45"/>
+  <g filter="url(#shadow)">
+    <path d="M201 512c19-80 49-124 91-132 48-9 91 31 110 132Z" fill="url(#shirtA)"/>
+    <circle cx="305" cy="318" r="58" fill="#9a5b34"/>
+    <path d="M250 313c13-58 70-76 121-42 12 37-12 59-44 51-22-6-43-1-77-9Z" fill="#111827"/>
+    <path d="M426 512c17-73 47-112 90-118 52-8 94 37 114 118Z" fill="url(#shirtB)"/>
+    <circle cx="523" cy="337" r="54" fill="#b86f48"/>
+    <path d="M472 329c9-57 67-77 111-38 16 48-22 72-62 54-16-7-30-10-49-16Z" fill="#2f1c12"/>
+    <path d="M626 510c16-87 48-133 98-139 57-7 103 44 126 139Z" fill="url(#shirtC)"/>
+    <circle cx="731" cy="304" r="56" fill="#8b4b2b"/>
+    <path d="M674 304c10-53 66-82 116-48 7 43-24 65-67 53-16-5-28-6-49-5Z" fill="#1f2937"/>
+    <rect x="337" y="424" width="298" height="180" rx="22" fill="#f8fafc"/>
+    <path d="M337 442c0-10 8-18 18-18h262c10 0 18 8 18 18v96H337Z" fill="#dbe4f0"/>
+    <circle cx="486" cy="483" r="15" fill="#94a3b8"/>
+    <rect x="298" y="584" width="384" height="28" rx="14" fill="#475569"/>
+  </g>
+</svg>
