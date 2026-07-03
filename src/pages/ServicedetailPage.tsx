@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
+import { useParams, useNavigate } from 'react-router'
 
 import {
   Star,
@@ -18,6 +18,7 @@ import { cn } from '../utils/cn'
 
 export function ServicedetailPage() {
   const { coachId, category } = useParams<{ coachId: string; category: string }>()
+  const navigate = useNavigate()
   const [serviceData, setServiceData] = useState<ServiceDetailData | null>(null)
   const [loading, setLoading] = useState(true)
   const [expandedFaq, setExpandedFaq] = useState<string | null>(null)
@@ -282,7 +283,7 @@ export function ServicedetailPage() {
                 </div>
               </div>
 
-              <Button className="w-full mb-3" showArrow to="/book-now">
+              <Button className="w-full mb-3" showArrow onClick={() => navigate(`/checkout/${category}/${coachId}`)}>
                 Book Now
               </Button>
 

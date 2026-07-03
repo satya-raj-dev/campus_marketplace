@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router'
 import { MainLayout } from '../layouts/MainLayout'
-import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage, ServicedetailPage, BecomesellerPage } from '../pages'
+import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage, ServicedetailPage, BecomesellerPage, CheckoutPage } from '../pages'
 
 export function AppRoutes() {
   return (
@@ -12,7 +12,7 @@ export function AppRoutes() {
         <Route path="bookings" element={<PlaceholderPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="service/:category/:coachId" element={<ServicedetailPage />} />
-        <Route path="book-now" element={<PlaceholderPage />} />
+        <Route path="checkout/:category/:coachId" element={<CheckoutPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="*" element={<PlaceholderPage />} />
