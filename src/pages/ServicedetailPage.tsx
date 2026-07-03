@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
+
 import {
   Star,
   MessageSquare,
@@ -281,7 +282,7 @@ export function ServicedetailPage() {
                 </div>
               </div>
 
-              <Button className="w-full mb-3" showArrow>
+              <Button className="w-full mb-3" showArrow to="/book-now">
                 Book Now
               </Button>
 

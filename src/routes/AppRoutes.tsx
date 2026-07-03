@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router'
 import { MainLayout } from '../layouts/MainLayout'
-import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage, ServicedetailPage, FillurdetailPage } from '../pages'
+import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage, ServicedetailPage, BecomesellerPage } from '../pages'
 
 export function AppRoutes() {
   return (
@@ -8,11 +8,11 @@ export function AppRoutes() {
       <Route element={<MainLayout />}>
         <Route index element={<HomePage />} />
         <Route path="explore" element={<PlaceholderPage />} />
-        <Route path="become-seller" element={<PlaceholderPage />} />
+        <Route path="become-seller" element={<BecomesellerPage />} />
         <Route path="bookings" element={<PlaceholderPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="service/:category/:coachId" element={<ServicedetailPage />} />
-        <Route path="book-now" element={<FillurdetailPage />} />
+        <Route path="book-now" element={<PlaceholderPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="*" element={<PlaceholderPage />} />
