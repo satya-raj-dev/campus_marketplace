@@ -45,3 +45,47 @@ export type FooterColumn = {
   title: string
   links: NavigationLink[]
 }
+
+// New types for service detail page
+export type SellerProfile = {
+  name: string
+  branch: string
+  year: number
+  joining_date: Date
+  profile_picture: string
+}
+
+export type ServiceHero = {
+  title: string
+  description: string
+  imageurl: string
+  order_completed: number
+}
+
+export type ServiceAbout = {
+  description: string
+  highlight: string[]
+  ideal_for: string[]
+}
+
+export type ServiceReview = {
+  userid: string
+  rating: number
+  description: string
+  date: Date
+}
+
+export type ServicePackage = {
+  name: string
+  price: string
+  features: string[]
+  delivery_days: number
+}
+
+export type ServiceDetailData = {
+  hero: ServiceHero
+  about: SellerProfile
+  aboutService: ServiceAbout
+  reviews: ServiceReview[]
+  packages: ServicePackage[]
+}

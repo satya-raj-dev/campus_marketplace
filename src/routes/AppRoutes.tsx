@@ -1,7 +1,6 @@
-
 import { Route, Routes } from 'react-router'
- import { MainLayout } from '../layouts/MainLayout'
-import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage } from '../pages'
+import { MainLayout } from '../layouts/MainLayout'
+import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage, ServicedetailPage, FillurdetailPage } from '../pages'
 
 export function AppRoutes() {
   return (
@@ -12,6 +11,8 @@ export function AppRoutes() {
         <Route path="become-seller" element={<PlaceholderPage />} />
         <Route path="bookings" element={<PlaceholderPage />} />
         <Route path="login" element={<LoginPage />} />
+        <Route path="service/:category/:coachId" element={<ServicedetailPage />} />
+        <Route path="book-now" element={<FillurdetailPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route path="profile" element={<ProfilePage />} />
         <Route path="*" element={<PlaceholderPage />} />

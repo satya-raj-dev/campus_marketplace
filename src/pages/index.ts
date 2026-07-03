@@ -3,4 +3,5 @@ export { PlaceholderPage } from './PlaceholderPage'
 export { LoginPage } from './LoginPage'
 export { SignupPage } from './SignupPage'
 export { ProfilePage } from './ProfilePage'
-
+export { ServicedetailPage } from './ServicedetailPage'
+export {FillurdetailPage} from './FillurdetailPage'
