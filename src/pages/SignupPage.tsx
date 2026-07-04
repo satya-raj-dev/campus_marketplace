@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
-import { Eye, EyeOff, Mail, Lock, User, AlertCircle } from 'lucide-react'
+import { Eye, EyeOff, Mail, Lock, User, AlertCircle, CheckCircle } from 'lucide-react'
 import { Button, Container, Logo } from '../components/common'
 import { cn } from '../utils/cn'
-import { signUpWithEmail } from '../firebase'
+import { signUpWithEmail, resendVerificationEmail } from '../firebase'
 
 export function SignupPage() {
   const [name, setName] = useState('')
@@ -14,12 +14,19 @@ export function SignupPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const navigate = useNavigate()
+  const [isSignupSuccess, setIsSignupSuccess] = useState(false)
+  const [resendLoading, setResendLoading] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError(null)
+
+    if (!email.endsWith('@nitk.edu.in')) {
+      setError('Only NITK email id ending with @nitk.edu.in are allowed.');
+      setIsLoading(false)
+      return; 
+    }
 
     if (password !== confirmPassword) {
       setError('Passwords do not match')
@@ -30,12 +37,78 @@ export function SignupPage() {
     const result = await signUpWithEmail(email, password, name)
 
     if (result.success) {
-      navigate('/')
+      setIsSignupSuccess(true)
     } else {
       setError(result.error || 'Signup failed')
     }
 
     setIsLoading(false)
+  }
+
+  const handleResendVerification = async () => {
+    setResendLoading(true)
+    setError(null)
+    
+    const result = await resendVerificationEmail()
+    
+    if (!result.success) {
+      setError(result.error || 'Failed to resend verification email')
+    }
+    
+    setResendLoading(false)
+  }
+
+  if (isSignupSuccess) {
+    return (
+      <section className="min-h-[calc(100vh-200px)] py-16">
+        <Container>
+          <div className="mx-auto max-w-md">
+            <div className="mb-8 flex justify-center">
+              <Logo />
+            </div>
+
+            <div className="rounded-4xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/70 sm:p-10">
+              <div className="text-center">
+                <CheckCircle className="mx-auto mb-4 h-16 w-16 text-green-500" />
+                <h1 className="text-3xl font-black tracking-tight text-ink sm:text-4xl">
+                  Verify Your Email
+                </h1>
+                <p className="mt-4 text-sm leading-6 text-muted">
+                  We've sent a verification email to <strong className="text-ink">{email}</strong>. 
+                  Please check your inbox and click the verification link to activate your account.
+                </p>
+              </div>
+
+              {error && (
+                <div className="mt-6 flex items-center gap-2 rounded-xl bg-red-50 p-4 text-red-600">
+                  <AlertCircle className="h-5 w-5" />
+                  <p className="text-sm font-medium">{error}</p>
+                </div>
+              )}
+
+              <div className="mt-8 space-y-4">
+                <Button
+                  type="button"
+                  className="w-full"
+                  size="lg"
+                  onClick={handleResendVerification}
+                  disabled={resendLoading}
+                >
+                  {resendLoading ? 'Resending...' : 'Resend Verification Email'}
+                </Button>
+                
+                <Link
+                  to="/login"
+                  className="block text-center text-sm font-semibold text-brand hover:text-brand-dark transition"
+                >
+                  Go to Login
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    )
   }
 
   return (

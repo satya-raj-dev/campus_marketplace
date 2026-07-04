@@ -4,6 +4,7 @@ import {
   signOut,
   sendPasswordResetEmail,
   updateProfile,
+  sendEmailVerification,
 } from 'firebase/auth'
 import type { UserCredential } from 'firebase/auth'
 import { auth, isConfigValid } from './firebase'
@@ -34,6 +35,9 @@ export const signUpWithEmail = async (
         displayName: name,
       })
     }
+    
+    // Send email verification
+    await sendEmailVerification(userCredential.user)
 
     return {
       success: true,
@@ -41,6 +45,35 @@ export const signUpWithEmail = async (
     }
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Failed to sign up'
+    return {
+      success: false,
+      error: errorMessage,
+    }
+  }
+}
+
+export const resendVerificationEmail = async (): Promise<AuthResult> => {
+  if (!isConfigValid) {
+    return {
+      success: false,
+      error: 'Firebase configuration is not set up',
+    }
+  }
+  
+  if (!auth?.currentUser) {
+    return {
+      success: false,
+      error: 'No user logged in',
+    }
+  }
+
+  try {
+    await sendEmailVerification(auth.currentUser)
+    return {
+      success: true,
+    }
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : 'Failed to resend verification email'
     return {
       success: false,
       error: errorMessage,
