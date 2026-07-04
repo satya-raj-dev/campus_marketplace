@@ -29,13 +29,13 @@ function ServiceCard({ service }: { service: Service }) {
             <Star className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden="true" />
             {service.rating}
           </div>
-          <button
+          {/* <button
             type="button"
             className="absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 text-slate-500 shadow-md transition hover:text-rose-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
             aria-label={`Save ${service.name} to favourites`}
           >
             <Heart className="h-5 w-5" aria-hidden="true" />
-          </button>
+          </button> */}
         </div>
 
         <div className="p-5">

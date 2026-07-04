@@ -8,6 +8,7 @@ import {
 } from 'firebase/auth'
 import type { UserCredential } from 'firebase/auth'
 import { auth, isConfigValid } from './firebase'
+import { createUserDocument } from './firestore'
 
 type AuthResult = {
   success: boolean
@@ -38,6 +39,13 @@ export const signUpWithEmail = async (
     
     // Send email verification
     await sendEmailVerification(userCredential.user)
+    
+    // Create user document in Firestore
+    await createUserDocument(
+      userCredential.user.uid,
+      email,
+      name
+    )
 
     return {
       success: true,

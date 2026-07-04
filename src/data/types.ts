@@ -89,3 +89,12 @@ export type ServiceDetailData = {
   reviews: ServiceReview[]
   packages: ServicePackage[]
 }
+
+// Type for user document in Firestore
+export type UserDocument = {
+  uid: string
+  email: string
+  displayName?: string
+  createdAt: Date
+  emailVerified: boolean
+}

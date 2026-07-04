@@ -4,6 +4,7 @@ import {
   collection,
   getDocs,
   QueryDocumentSnapshot,
+  setDoc,
 } from 'firebase/firestore'
 import type { DocumentData } from 'firebase/firestore'
 import { db, isConfigValid } from './firebase'
@@ -13,6 +14,7 @@ import type {
   SellerProfile,
   ServiceAbout,
   ServiceReview,
+  UserDocument,
 } from '../data/types'
 
 export async function getServiceDetail(
@@ -134,5 +136,34 @@ export async function getServiceDetail(
   } catch (error) {
     console.error('Error fetching service detail:', error)
     return null
+  }
+}
+
+export async function createUserDocument(
+  uid: string,
+  email: string,
+  displayName?: string
+): Promise<boolean> {
+  if (!isConfigValid || !db) {
+    console.error('Firebase not initialized')
+    return false
+  }
+
+  try {
+    const userDocRef = doc(db, 'users', uid)
+    const userData: UserDocument = {
+      uid,
+      email,
+      displayName,
+      createdAt: new Date(),
+      emailVerified: false,
+    }
+    
+    await setDoc(userDocRef, userData)
+    console.log('User document created successfully')
+    return true
+  } catch (error) {
+    console.error('Error creating user document:', error)
+    return false
   }
 }
