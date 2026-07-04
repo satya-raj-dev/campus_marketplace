@@ -115,9 +115,9 @@ export function SignupPage() {
     <section className="min-h-[calc(100vh-200px)] py-16">
       <Container>
         <div className="mx-auto max-w-md">
-          <div className="mb-8 flex justify-center">
+          {/* <div className="mb-8 flex justify-center">
             <Logo />
-          </div>
+          </div> */}
 
           <div className="rounded-4xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/70 sm:p-10">
             <div className="text-center">
