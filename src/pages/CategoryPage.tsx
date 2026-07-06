@@ -6,17 +6,11 @@ import { storeStats } from '../data/home'
 import { useState, useEffect } from 'react';
 import { getCategories } from '../firebase/firestore';
 import { resolveCategoryIcon } from '../utils/categoryIcons'
-
-type RemoteCategory = {
-  name: string
-  icon?: unknown
-  iconClassName?: string
-  surfaceClassName?: string
-}
+import type { category } from '../data/types'
 
 
 export function CategoryPage() {
-  const [categories, setCategories] = useState<RemoteCategory[]>([]);
+  const [categories, setCategories] = useState<category[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +19,7 @@ export function CategoryPage() {
       try {
         setLoading(true);
         const data = await getCategories();
-        setCategories(data as RemoteCategory[]);
+        setCategories(data as category[]);
       } catch (error) {
         console.error("Failed to fetch categories:", error);
       } finally {
@@ -36,7 +30,6 @@ export function CategoryPage() {
     fetchCategories();
   }, []); // Empty array ensures it runs automatically ONLY when page opens
 
-  // 2. Conditional rendering based on loading state
   if (loading) {
     return <div>Loading categories...</div>;
   }

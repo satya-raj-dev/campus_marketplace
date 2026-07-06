@@ -16,7 +16,12 @@ export type StoreStat = {
   label: string
 }
 
-
+export type category ={
+  name: string
+  icon?: unknown
+  iconClassName: string
+  surfaceClassName: string
+}
 
 
 export type Service = {

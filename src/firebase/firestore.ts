@@ -16,7 +16,7 @@ import type {
   ServiceReview,
   UserDocument,
 } from '../data/types'
-
+// Get sevice detail
 export async function getServiceDetail(
   coachId: string,
   category: string
@@ -138,7 +138,7 @@ export async function getServiceDetail(
     return null
   }
 }
-
+// create user document
 export async function createUserDocument(
   uid: string,
   email: string,
