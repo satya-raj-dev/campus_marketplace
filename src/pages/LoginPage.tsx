@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 import { Eye, EyeOff, Mail, Lock, AlertCircle, MailCheck } from 'lucide-react'
-import { Button, Container, Logo } from '../components/common'
+import { Button, Container } from '../components/common'
 import { cn } from '../utils/cn'
 import { signInWithEmail, signOutUser, resendVerificationEmail } from '../firebase'
 

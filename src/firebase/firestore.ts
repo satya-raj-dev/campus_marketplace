@@ -167,3 +167,35 @@ export async function createUserDocument(
     return false
   }
 }
+
+
+// export async function addCategory() {
+// await Promise.all(
+//   categories.map((category) =>
+//     setDoc(doc(db, "categories", category.id), {
+//       name: category.name,
+//       icon: category.icon,
+//       iconClassName: category.iconClassName,
+//       surfaceClassName: category.surfaceClassName,
+//       isActive: true,
+//     })
+//   )
+// );
+// }
+export async function getCategories() {
+  if (!isConfigValid || !db) {
+    console.error('Firebase not initialized')
+    return []
+  }
+  const snapshot = await getDocs(collection(db, "categories"));
+
+  const categories = snapshot.docs.map((doc) => ({
+    // id: doc.id,
+    ...doc.data(),
+  }));
+  return categories
+}
+
+
+  
+

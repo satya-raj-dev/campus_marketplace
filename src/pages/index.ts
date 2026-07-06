@@ -5,5 +5,7 @@ export { SignupPage } from './SignupPage'
 export { ProfilePage } from './ProfilePage'
 export { ServicedetailPage } from './ServicedetailPage'
 export { BecomesellerPage } from './BecomesellerPage'
+
 export { CheckoutPage } from './checkoutPage'
 export { ForgotPasswordPage } from './ForgotPasswordPage'
+export { CategoryPage } from './CategoryPage'

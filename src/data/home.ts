@@ -1,17 +1,10 @@
 import {
-  BookOpen,
   BriefcaseBusiness,
   CalendarCheck,
   Camera,
-  Clapperboard,
-  Code2,
-  Dumbbell,
   Globe,
   HeartHandshake,
-  Languages,
   MessagesSquare,
-  Music2,
-  Palette,
   Search,
   ShieldCheck,
   Sparkles,
@@ -21,9 +14,9 @@ import {
 } from 'lucide-react'
 import { images } from '../assets'
 import type {
-  Category,
   FooterColumn,
   HeroStat,
+  StoreStat,
   HowItWorksStep,
   NavigationLink,
   Service,
@@ -43,56 +36,10 @@ export const heroStats: HeroStat[] = [
   { value: '1000+', label: 'Bookings', icon: HeartHandshake },
   { value: '4.8★', label: 'Rating', icon: Star },
 ]
-
-export const categories: Category[] = [
-  {
-    name: 'Gym Trainer',
-    icon: Dumbbell,
-    iconClassName: 'text-violet-600',
-    surfaceClassName: 'bg-gradient-to-br from-violet-100 to-indigo-50',
-  },
-  {
-    name: 'Academic Tutor',
-    icon: BookOpen,
-    iconClassName: 'text-emerald-600',
-    surfaceClassName: 'bg-gradient-to-br from-emerald-100 to-green-50',
-  },
-  {
-    name: 'Developer',
-    icon: Code2,
-    iconClassName: 'text-sky-600',
-    surfaceClassName: 'bg-gradient-to-br from-sky-100 to-blue-50',
-  },
-  {
-    name: 'Designer',
-    icon: Palette,
-    iconClassName: 'text-rose-600',
-    surfaceClassName: 'bg-gradient-to-br from-rose-100 to-pink-50',
-  },
-  {
-    name: 'Photographer',
-    icon: Camera,
-    iconClassName: 'text-amber-600',
-    surfaceClassName: 'bg-gradient-to-br from-amber-100 to-orange-50',
-  },
-  {
-    name: 'Video Editor',
-    icon: Clapperboard,
-    iconClassName: 'text-purple-600',
-    surfaceClassName: 'bg-gradient-to-br from-purple-100 to-fuchsia-50',
-  },
-  {
-    name: 'Music Teacher',
-    icon: Music2,
-    iconClassName: 'text-orange-600',
-    surfaceClassName: 'bg-gradient-to-br from-orange-100 to-red-50',
-  },
-  {
-    name: 'Language Tutor',
-    icon: Languages,
-    iconClassName: 'text-teal-600',
-    surfaceClassName: 'bg-gradient-to-br from-teal-100 to-cyan-50',
-  },
+export const storeStats: StoreStat[] = [
+  { value: '20+', label: 'Categories' },
+  { value: '5K+', label: 'Services' },
+  { value: '98%', label: 'Happy Buyers' },
 ]
 
 export const popularServices: Service[] = [
@@ -181,7 +128,7 @@ export const popularServices: Service[] = [
     verified: true,
   },
 ]
-
+// *******************
 export const howItWorksSteps: HowItWorksStep[] = [
   {
     title: 'Create Account',

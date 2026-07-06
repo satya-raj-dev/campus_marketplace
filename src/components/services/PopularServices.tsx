@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { BadgeCheck, Heart, Star } from 'lucide-react'
+import { BadgeCheck, Star } from 'lucide-react'
 import { Link } from 'react-router'
 import { popularServices } from '../../data/home'
 import type { Service } from '../../data/types'

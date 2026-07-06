@@ -11,12 +11,11 @@ export type HeroStat = {
   icon: LucideIcon
 }
 
-export type Category = {
-  name: string
-  icon: LucideIcon
-  iconClassName: string
-  surfaceClassName: string
+export type StoreStat = {
+  value: string
+  label: string
 }
+
 
 export type Service = {
   id: number
