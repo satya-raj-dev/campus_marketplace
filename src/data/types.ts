@@ -17,6 +17,8 @@ export type StoreStat = {
 }
 
 
+
+
 export type Service = {
   id: number
   name: string
