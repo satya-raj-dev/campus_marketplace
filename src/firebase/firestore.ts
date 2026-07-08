@@ -5,18 +5,25 @@ import {
   getDocs,
   QueryDocumentSnapshot,
   setDoc,
+  addDoc,
+  query,
+  where,
+  
 } from 'firebase/firestore'
 import type { DocumentData } from 'firebase/firestore'
 import { db, isConfigValid } from './firebase'
+import type { UserDocument } from '../data/types'
 import type {
   ServiceDetailData,
   ServiceHero,
   SellerProfile,
   ServiceAbout,
   ServiceReview,
-  UserDocument,
+
 } from '../data/types'
+
 // Get sevice detail
+
 export async function getServiceDetail(
   coachId: string,
   category: string
@@ -138,6 +145,9 @@ export async function getServiceDetail(
     return null
   }
 }
+
+
+
 // create user document
 export async function createUserDocument(
   uid: string,
@@ -158,7 +168,7 @@ export async function createUserDocument(
       createdAt: new Date(),
       emailVerified: false,
     }
-    
+
     await setDoc(userDocRef, userData)
     console.log('User document created successfully')
     return true
@@ -168,20 +178,17 @@ export async function createUserDocument(
   }
 }
 
+//add service section
+export async function addService(overview: any) {
+  if (!isConfigValid || !db) {
+    console.error('Firebase not initialized')
+    return
+  }
+  await addDoc(collection(db, 'services'), { overview })
 
-// export async function addCategory() {
-// await Promise.all(
-//   categories.map((category) =>
-//     setDoc(doc(db, "categories", category.id), {
-//       name: category.name,
-//       icon: category.icon,
-//       iconClassName: category.iconClassName,
-//       surfaceClassName: category.surfaceClassName,
-//       isActive: true,
-//     })
-//   )
-// );
-// }
+}
+
+//get categories
 export async function getCategories() {
   if (!isConfigValid || !db) {
     console.error('Firebase not initialized')
@@ -190,12 +197,27 @@ export async function getCategories() {
   const snapshot = await getDocs(collection(db, "categories"));
 
   const categories = snapshot.docs.map((doc) => ({
-    // id: doc.id,
+    id: doc.id,
     ...doc.data(),
   }));
   return categories
 }
 
-
-  
+//get services
+export async function getservice(categoryId:string | undefined) {
+  if (!isConfigValid || !db) {
+    console.error('Firebase not initialized')
+    return []
+  }
+  const q = query(
+    collection(db, "services"),
+    where("categoryId", "==", categoryId)
+  );
+  const snapshot = await getDocs(q)
+  const services = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...(doc.data().overview ?? doc.data()),
+  }));
+  return services
+}
 

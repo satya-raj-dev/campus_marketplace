@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import { getCategories } from '../firebase/firestore';
 import { resolveCategoryIcon } from '../utils/categoryIcons'
 import type { category } from '../data/types'
-
+import { Link } from 'react-router'
 
 export function CategoryPage() {
   const [categories, setCategories] = useState<category[]>([]);
@@ -19,6 +19,7 @@ export function CategoryPage() {
       try {
         setLoading(true);
         const data = await getCategories();
+        console.log(data)
         setCategories(data as category[]);
       } catch (error) {
         console.error("Failed to fetch categories:", error);
@@ -83,13 +84,15 @@ export function CategoryPage() {
             const Icon = resolveCategoryIcon(category.icon, category.name)
 
             return (
-              <motion.button
+              <motion.div
                 key={category.name}
+                variants={fadeUp}
+              >
+              <Link
+                  to={`/services/${category.id}`}
                 className={cn(
                   'group flex min-h-44 flex-col items-center justify-center rounded-3xl border border-slate-200 bg-white px-5 py-8 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-xl hover:shadow-slate-200/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand',
                 )}
-                type="button"
-                variants={fadeUp}
                 aria-label={`Browse ${category.name}`}
               >
                 <span
@@ -98,15 +101,18 @@ export function CategoryPage() {
                     category.surfaceClassName,
                   )}
                 >
+                  
                   <Icon
                     className={cn('h-9 w-9 stroke-[2.4]', category.iconClassName)}
                     aria-hidden="true"
                   />
+                  
                 </span>
                 <span className="mt-7 text-xl font-black text-slate-950">
                   {category.name}
                 </span>
-              </motion.button>
+              </Link>
+              </motion.div>
             )
           })}
         </motion.div>

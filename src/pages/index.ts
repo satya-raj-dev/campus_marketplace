@@ -9,3 +9,5 @@ export { BecomesellerPage } from './BecomesellerPage'
 export { CheckoutPage } from './checkoutPage'
 export { ForgotPasswordPage } from './ForgotPasswordPage'
 export { CategoryPage } from './CategoryPage'
+export {ServicePage} from './ServicePage'
+

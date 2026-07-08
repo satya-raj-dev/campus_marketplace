@@ -17,27 +17,41 @@ export type StoreStat = {
 }
 
 export type category ={
+  id:string,
   name: string
   icon?: unknown
   iconClassName: string
   surfaceClassName: string
 }
-
-
-export type Service = {
-  id: number
-  name: string
-  category: string
-  description: string
-  price: string
-  rating: string
-  image: string
-  imageAlt: string
-  seller: string
-  sellerMeta: string
-  avatarClassName: string
+export type Service ={
+  id:string;
+  title: string;
+  subheading: string;
+  thumbnail: string;
+  reviewCount: number;
+  price: number;
+  sellerId: string;
+  categoryId: string;
+  isActive: boolean;
+  rating: number;
   verified: boolean
 }
+
+
+// export type Service = {
+//   id: number
+//   name: string
+//   category: string
+//   description: string
+//   price: string
+//   rating: string
+//   image: string
+//   imageAlt: string
+//   seller: string
+//   sellerMeta: string
+//   avatarClassName: string
+//   verified: boolean
+// }
 
 export type HowItWorksStep = {
   title: string

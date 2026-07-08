@@ -10,7 +10,7 @@ const isConfigValid = validateFirebaseConfig()
 
 let app: FirebaseApp | undefined
 let auth: Auth | undefined
-let db: Firestore | undefined
+let db: Firestore
 
 if (isConfigValid) {
   app = initializeApp(firebaseConfig)

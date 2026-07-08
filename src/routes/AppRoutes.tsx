@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router'
 import { MainLayout } from '../layouts/MainLayout'
-import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage, ServicedetailPage, BecomesellerPage, CheckoutPage, ForgotPasswordPage, CategoryPage } from '../pages'
+import { HomePage, PlaceholderPage, LoginPage, SignupPage, ProfilePage, ServicedetailPage, BecomesellerPage, CheckoutPage, ForgotPasswordPage, CategoryPage,ServicePage } from '../pages'
+import ContactForm from '../pages/PutserviceData'
 
 export function AppRoutes() {
   return (
@@ -9,6 +10,7 @@ export function AppRoutes() {
         <Route index element={<HomePage />} />
         <Route path="explore" element={<CategoryPage />} />
         <Route path="become-seller" element={<BecomesellerPage />} />
+        <Route path="putdata" element={< ContactForm />} />
         <Route path="bookings" element={<PlaceholderPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="forgot-password" element={<ForgotPasswordPage />} />
@@ -18,6 +20,8 @@ export function AppRoutes() {
         <Route path="profile" element={<ProfilePage />} />
         <Route path="*" element={<PlaceholderPage />} />
         <Route path="category" element={<CategoryPage />} />
+        <Route path="/services/:categoryId" element={<ServicePage />} />
+        
       </Route>
     </Routes>
   )
