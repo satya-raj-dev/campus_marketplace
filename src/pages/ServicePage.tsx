@@ -13,14 +13,13 @@ export function ServicePage() {
       const [loading, setLoading] = useState(true);
       const reduceMotion = useReducedMotion()
       const { categoryId } = useParams();
-    
+
       useEffect(() => {
         // Define an async function inside useEffect to handle the promise
         const fetchServices = async () => {
           try {
             setLoading(true);
             const data = await getservice(categoryId);
-            console.log(data)
             setServices(data as Service[]);
           } catch (error) {
             console.error("Failed to fetch services:", error);
@@ -60,13 +59,9 @@ export function ServicePage() {
 
 
 function ServiceCard({ service }: { service: Service }) {
-  // For testing with your actual Firebase data
-  // You can change these to match your real data!
-  const categorySlug = "gym trainer" // From your Firebase screenshot
-  const coachId = "co1" // From your Firebase screenshot
-
+  const { categoryId } = useParams();
   return (
-    <Link to={`/service/${categorySlug}/${coachId}`} className="block">
+    <Link to={`/service/${categoryId}/${service.id}`} className="block">
       <motion.article
         className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-300/60"
         variants={fadeUp}
