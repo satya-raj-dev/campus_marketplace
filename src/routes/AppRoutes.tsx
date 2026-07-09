@@ -14,7 +14,6 @@ export function AppRoutes() {
         <Route path="bookings" element={<PlaceholderPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="forgot-password" element={<ForgotPasswordPage />} />
-        {/* <Route path="service/:category/:coachId" element={<ServicedetailPage />} /> */}
         <Route path="checkout/:category/:coachId" element={<CheckoutPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route path="profile" element={<ProfilePage />} />

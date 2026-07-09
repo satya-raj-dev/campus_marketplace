@@ -1,6 +1,4 @@
 
-
-
 export function ServicedetailPage() {
   return (
     <div>
