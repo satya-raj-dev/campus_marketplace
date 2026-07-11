@@ -40,7 +40,7 @@ export function SellerProfile() {
                   >
                     About the Seller
                   </h2>
-                  <div className="bg-card border border-border rounded-2xl p-6">
+                  <div className="bg-surface border border-border rounded-2xl p-6">
                     <div className="flex items-start gap-4 mb-5">
                       <div className="relative shrink-0">
                         <img
@@ -101,7 +101,7 @@ export function SellerProfile() {
 }
 export function SellerCard(){
     return (
-        <div className="mt-4 bg-card border border-border rounded-2xl p-4 flex items-center gap-3">
+        <div className="mt-4 bg-surface border border-border rounded-2xl p-4 flex items-center gap-3">
               <img
                 src={SELLER.avatar}
                 alt={SELLER.name}

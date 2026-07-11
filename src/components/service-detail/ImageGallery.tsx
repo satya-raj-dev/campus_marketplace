@@ -23,7 +23,7 @@ export function ImageGallery (){
                 ))}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
               </div>
-              <div className="flex gap-2 p-3 bg-card">
+              <div className="flex gap-2 p-3 bg-surface">
                 {IMAGES.map((src, i) => (
                   <button
                     key={i}

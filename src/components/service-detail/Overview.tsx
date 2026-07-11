@@ -46,7 +46,7 @@ export function Overview() {
                     ].map(({ icon: Icon, label, sub }) => (
                       <div
                         key={label}
-                        className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors"
+                        className="flex items-start gap-3 p-4 rounded-xl bg-surface border border-border hover:border-primary/30 transition-colors"
                       >
                         <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center shrink-0">
                           <Icon size={16} className="text-primary" />
