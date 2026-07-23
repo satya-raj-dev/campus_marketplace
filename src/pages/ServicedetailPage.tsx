@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router";
-import { getreviews, getServiceDetail,getSellerDetail } from "../firebase/firestore";
+import {
+  getreviews,
+  getServiceDetail,
+  getSellerDetail,
+} from "../firebase/firestore";
 import type { ServiceDetail, Review, Seller } from "../data/types";
 import { Breadcrumb } from "../components/service-detail";
 import { Title } from "../components/service-detail";
@@ -21,6 +25,7 @@ export function ServiceDetailPage() {
   const { categoryId } = useParams();
   const { serviceId } = useParams();
   const { serviceTitle } = useParams();
+  const { sellerId } = useParams();
 
   useEffect(() => {
     // Define an async function inside useEffect to handle the promise
@@ -52,7 +57,7 @@ export function ServiceDetailPage() {
   useEffect(() => {
     const fetchSellerDetail = async () => {
       try {
-        const data = await getSellerDetail("OulWnbypEKQ8lGnHAhGI");
+        const data = await getSellerDetail(sellerId);
         console.log(data);
         setSeller(data as Seller);
       } catch (error) {

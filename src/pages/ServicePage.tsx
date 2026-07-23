@@ -62,7 +62,10 @@ export function ServicePage() {
 function ServiceCard({ service }: { service: Service }) {
   const { categoryId } = useParams();
   return (
-    <Link to={`/service/${categoryId}/${service.id}/${service.title}`} className="block">
+    <Link
+      to={`/service/${categoryId}/${service.id}/${service.title}/${service.sellerId}`}
+      className="block"
+    >
       <motion.article
         className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-300/60"
         variants={fadeUp}
@@ -74,7 +77,10 @@ function ServiceCard({ service }: { service: Service }) {
             alt={service.title}
           />
           <div className="absolute left-4 top-4 inline-flex items-center gap-1 rounded-full bg-white/95 px-3 py-1.5 text-sm font-bold text-ink shadow-md">
-            <Star className="h-4 w-4 fill-amber-400 text-amber-400" aria-hidden="true" />
+            <Star
+              className="h-4 w-4 fill-amber-400 text-amber-400"
+              aria-hidden="true"
+            />
             {service.rating}
           </div>
           {/* <button
@@ -92,7 +98,9 @@ function ServiceCard({ service }: { service: Service }) {
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand">
                 {service.categoryId}
               </p>
-              <h3 className="mt-1 text-lg font-bold text-ink">{service.title}</h3>
+              <h3 className="mt-1 text-lg font-bold text-ink">
+                {service.title}
+              </h3>
             </div>
             {service.verified ? (
               <span className="mt-1 text-brand" aria-label="Verified seller">
@@ -100,7 +108,9 @@ function ServiceCard({ service }: { service: Service }) {
               </span>
             ) : null}
           </div>
-          <p className="mt-3 min-h-12 text-sm leading-6 text-muted">{service.subheading}</p>
+          <p className="mt-3 min-h-12 text-sm leading-6 text-muted">
+            {service.subheading}
+          </p>
           <div className="mt-5 flex items-center justify-between gap-4 border-t border-slate-100 pt-4">
             {/* <div className="flex items-center gap-3">
               <span
@@ -120,10 +130,12 @@ function ServiceCard({ service }: { service: Service }) {
                 <span className="block text-xs text-muted">{service.sellerMeta}</span>
               </span>
             </div> */}
-            <p className="whitespace-nowrap text-base font-black text-ink">{service.price}</p>
+            <p className="whitespace-nowrap text-base font-black text-ink">
+              {service.price}
+            </p>
           </div>
         </div>
       </motion.article>
     </Link>
-  )
+  );
 }

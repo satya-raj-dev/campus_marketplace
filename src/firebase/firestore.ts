@@ -129,7 +129,7 @@ export async function getreviews(serviceId:string | undefined) {
 }
 
 //get seller details
-export async function getSellerDetail(sellerId:string){
+export async function getSellerDetail(sellerId:string | any){
   if (!isConfigValid || !db) {
     console.error("Firebase not initialized");
     return ;
