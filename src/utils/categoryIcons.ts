@@ -20,6 +20,11 @@ import {
   ShoppingBag,
   Smartphone,
   Utensils,
+  Zap,
+  Award,
+  Shield,
+  Calendar,
+  CheckCircle
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 
@@ -45,7 +50,12 @@ const iconByName: Record<string, LucideIcon> = {
   ShoppingBag,
   Smartphone,
   Utensils,
-}
+  Zap,
+  Award,
+  Shield,
+  Calendar,
+  CheckCircle,
+};
 
 const iconByCategoryName: Record<string, LucideIcon> = {
   'academic tutor': BookOpen,
@@ -91,3 +101,4 @@ export function resolveCategoryIcon(icon: unknown, categoryName?: string): Lucid
 
   return MessageSquare
 }
+

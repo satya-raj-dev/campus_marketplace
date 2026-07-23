@@ -6,43 +6,17 @@ import {
     MessageCircle
 } from "lucide-react"
 import { useState } from "react";
-
-const PACKAGES = [
-  {
-    id: "basic",
-    label: "Basic",
-    price: 299,
-    delivery: "3 days",
-    description: "One 60-min DSA session covering arrays, strings, and sorting.",
-    includes: ["1 live session", "Problem set (10 Qs)", "Recording"],
-  },
-  {
-    id: "standard",
-    label: "Standard",
-    price: 799,
-    delivery: "7 days",
-    description: "4 sessions covering full DSA roadmap + mock interview.",
-    includes: ["4 live sessions", "Full problem set", "Mock interview", "Recordings", "WhatsApp support"],
-    popular: true,
-  },
-  {
-    id: "premium",
-    label: "Premium",
-    price: 1499,
-    delivery: "21 days",
-    description: "Complete SDE-1 prep: DSA + System Design + 3 mock interviews.",
-    includes: ["10 live sessions", "System Design guide", "3 mock interviews", "Resume review", "30-day support"],
-  },
-];
+import type { Package } from "../../data/types"; 
 
 
-export  function Packages(){
+export  function Packages({packages}:{packages:Package[]|undefined}){
      const [selectedPkg, setSelectedPkg] = useState("standard");
-     const pkg = PACKAGES.find((p) => p.id === selectedPkg)!;
+     const pkg = packages?.find((p) => p.id === selectedPkg)!;
+     
     return (
       <div className="bg-surface border border-border rounded-2xl shadow-sm overflow-hidden">
         <div className="flex border-b border-border">
-          {PACKAGES.map((p) => (
+          {packages?.map((p) => (
             <button
               key={p.id}
               onClick={() => setSelectedPkg(p.id)}

@@ -1,10 +1,8 @@
 import {
     ChevronDown
 } from "lucide-react"
-import { useState } from "react";
-
-
-
+import  { useState } from "react";
+import type { FaqProps } from "../../data/types";
 
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -28,33 +26,11 @@ function FAQItem({ q, a }: { q: string; a: string }) {
     </div>
   );
 }
-const FAQS = [
-  {
-    q: "What platform do you use for sessions?",
-    a: "All sessions are conducted on Google Meet with screen sharing. Recordings are shared via Google Drive within 24 hours of each session.",
-  },
-  {
-    q: "Can I reschedule a session?",
-    a: "Yes, you can reschedule up to 4 hours before the scheduled time. I'm flexible on weekends and evenings to suit your timetable.",
-  },
-  {
-    q: "Which companies do you cover interview prep for?",
-    a: "I specifically cover product companies — Flipkart, Amazon, Microsoft, Google, Paytm, Swiggy, and FAANG in general. Both OA and technical interview rounds.",
-  },
-  {
-    q: "Do I need prior DSA knowledge?",
-    a: "Basic programming knowledge is enough for the Basic and Standard packages. Premium assumes you can code in at least one language (C++/Java/Python).",
-  },
-  {
-    q: "Is there a refund policy?",
-    a: "Full refund within 24 hours of booking if no session has been conducted. Post first session, partial refund on unused sessions is available.",
-  },
-];
 
-export function Faq() {
+export function Faq({ faqs }: FaqProps)  {
     return(
         <div className="bg-card border border-border rounded-2xl px-6">
-                {FAQS.map((faq) => (
+                {faqs?.map((faq) => (
                   <FAQItem key={faq.q} q={faq.q} a={faq.a} />
                 ))}
               </div>

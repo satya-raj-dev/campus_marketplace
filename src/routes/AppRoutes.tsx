@@ -20,7 +20,7 @@ export function AppRoutes() {
         <Route path="*" element={<PlaceholderPage />} />
         <Route path="category" element={<CategoryPage />} />
         <Route path="/services/:categoryId" element={<ServicePage />} />
-        <Route path="/service/:categoryId/:serviceId" element={<ServiceDetailPage />} />
+        <Route path="/service/:categoryId/:serviceId/:serviceTitle" element={<ServiceDetailPage />} />
 
       </Route>
     </Routes>

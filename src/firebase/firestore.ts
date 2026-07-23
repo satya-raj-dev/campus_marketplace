@@ -94,18 +94,51 @@ export async function getServiceDetail(serviceId:string | any) {
     console.error('Firebase not initialized')
     return []
   }
-  const overviewRef = doc(
+  const q = doc(
     db,
     "services",
     serviceId,
     "details",
-    "overview"
+    "content"
   );
-  const snapshot = await getDoc(overviewRef);
+  const snapshot = await getDoc(q);
 if (!snapshot.exists()) {
     return null;
   }
-  console.log(snapshot.data())
+  // console.log(snapshot.data())
   return snapshot.data();
 }
 
+// Get reviews
+export async function getreviews(serviceId:string | undefined) {
+  if (!isConfigValid || !db) {
+    console.error("Firebase not initialized");
+    return [];
+  }
+  const q = query(
+    collection(db, "reviews"),
+    where("serviceId", "==", serviceId),
+  );
+ 
+  const snapshot = await getDocs(q);
+  const reviews = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...(doc.data()),
+  }));
+  return reviews;
+}
+
+//get seller details
+export async function getSellerDetail(sellerId:string){
+  if (!isConfigValid || !db) {
+    console.error("Firebase not initialized");
+    return ;
+  }
+  const q = doc(db, "sellers", sellerId);
+  const snapshot = await getDoc(q);
+  if (!snapshot.exists()) {
+    return null;
+  }
+  return snapshot.data();
+  
+}

@@ -21,6 +21,7 @@ export function ServicePage() {
             setLoading(true);
             const data = await getservice(categoryId);
             setServices(data as Service[]);
+            console.log(data)
           } catch (error) {
             console.error("Failed to fetch services:", error);
           } finally {
@@ -61,7 +62,7 @@ export function ServicePage() {
 function ServiceCard({ service }: { service: Service }) {
   const { categoryId } = useParams();
   return (
-    <Link to={`/service/${categoryId}/${service.id}`} className="block">
+    <Link to={`/service/${categoryId}/${service.id}/${service.title}`} className="block">
       <motion.article
         className="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60 transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-slate-300/60"
         variants={fadeUp}
